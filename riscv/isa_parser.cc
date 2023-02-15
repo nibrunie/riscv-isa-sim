@@ -222,6 +222,29 @@ isa_parser_t::isa_parser_t(const char* str, const char *priv)
     } else if (ext_str == "zicbop") {
     } else if (ext_str == "zicntr") {
     } else if (ext_str == "zihpm") {
+    } else if (ext_str == "zvkb") {
+      extension_table[EXT_ZVKB] = true;
+    } else if (ext_str == "zvkg") {
+      extension_table[EXT_ZVKG] = true;
+    } else if (ext_str == "zvkn") {
+      extension_table[EXT_ZVKB] = true;
+      extension_table[EXT_ZVKNED] = true;
+      extension_table[EXT_ZVKNHA] = true;
+      extension_table[EXT_ZVKNHB] = true;
+    } else if (ext_str == "zvkned") {
+      extension_table[EXT_ZVKNED] = true;
+    } else if (ext_str == "zvknha") {
+      extension_table[EXT_ZVKNHA] = true;
+    } else if (ext_str == "zvknhb") {
+      extension_table[EXT_ZVKNHB] = true;
+    } else if (ext_str == "zvks") {
+      extension_table[EXT_ZVKB] = true;
+      extension_table[EXT_ZVKSED] = true;
+      extension_table[EXT_ZVKSH] = true;
+    } else if (ext_str == "zvksed") {
+      extension_table[EXT_ZVKSED] = true;
+    } else if (ext_str == "zvksh") {
+      extension_table[EXT_ZVKSH] = true;
     } else if (ext_str == "sstc") {
         extension_table[EXT_SSTC] = true;
     } else if (ext_str[0] == 'x') {
