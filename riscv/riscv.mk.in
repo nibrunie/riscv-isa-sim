@@ -1320,8 +1320,13 @@ riscv_insn_ext_zvkb = \
 	vror_vv \
 	vror_vx \
 
+riscv_insn_ext_zvkg= \
+	vghsh_vv \
+	vgmul_vv \
+
 riscv_insn_ext_zvk = \
 	$(riscv_insn_ext_zvkb) \
+	$(riscv_insn_ext_zvkg) \
 
 # Note that riscv_insn_ext_p and riscv_insn_ext_zvk contain instructions
 # that have conflicting encodings. They cannot be both included concurrently.
