@@ -1305,6 +1305,24 @@ riscv_insn_ext_cmo = \
 	cbo_inval \
 	cbo_zero \
 
+riscv_insn_ext_zvkb = \
+	vandn_vv \
+	vandn_vx \
+	vbrev8_v \
+	vclmul_vv \
+	vclmul_vx \
+	vclmulh_vv \
+	vclmulh_vx \
+	vrev8_v \
+	vrol_vv \
+	vrol_vx \
+	vror_vi \
+	vror_vv \
+	vror_vx \
+
+riscv_insn_ext_zvk = \
+	$(riscv_insn_ext_zvkb) \
+
 # Note that riscv_insn_ext_p and riscv_insn_ext_zvk contain instructions
 # that have conflicting encodings. They cannot be both included concurrently.
 # TODO: have a mechanism to enable those groups at runtime.
@@ -1323,6 +1341,7 @@ riscv_insn_list = \
 	$(riscv_insn_ext_q) \
 	$(riscv_insn_ext_zce) \
 	$(riscv_insn_ext_zfh) \
+	$(riscv_insn_ext_zvk) \
 	$(riscv_insn_priv) \
 	$(riscv_insn_svinval) \
 
