@@ -1337,6 +1337,9 @@ riscv_insn_ext_zvkned = \
 	vaeskf2_vi \
 	vaesz_vs \
 
+riscv_insn_ext_zvknf = \
+	vaese128_vv \
+
 # Covers both Zvknha and Zvkhnb.
 riscv_insn_ext_zvknh = \
 	vsha2cl_vv \
@@ -1359,6 +1362,7 @@ riscv_insn_ext_zvk = \
 	$(riscv_insn_ext_zvknh) \
 	$(riscv_insn_ext_zvksed) \
 	$(riscv_insn_ext_zvksh) \
+	$(riscv_insn_ext_zvknf) \
 
 # Note that riscv_insn_ext_p and riscv_insn_ext_zvk contain instructions
 # that have conflicting encodings. They cannot be both included concurrently.
