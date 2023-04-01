@@ -245,6 +245,8 @@ isa_parser_t::isa_parser_t(const char* str, const char *priv)
       extension_table[EXT_ZVKSED] = true;
     } else if (ext_str == "zvksh") {
       extension_table[EXT_ZVKSH] = true;
+    } else if (ext_str == "zvknf") {
+      extension_table[EXT_ZVKNF] = true;
     } else if (ext_str == "sstc") {
         extension_table[EXT_SSTC] = true;
     } else if (ext_str[0] == 'x') {
