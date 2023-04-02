@@ -4,7 +4,7 @@
 #include "zvk_ext_macros.h"
 
 // Uncomment to enable debug logging of invocations of this instruction.
-#define DLOG_INVOCATION
+// #define DLOG_INVOCATION
 
 #if defined(DLOG_INVOCATION)
 #define DLOG(...) ZVK_DBG_LOG(__VA_ARGS__)
@@ -56,6 +56,7 @@ VI_ZVK_VD_VS2_NOOPERANDS_PRELOOP_EGU32x4_NOVM_LOOP(
 
     // first round
     EGU8x16_XOREQ_EGU32x4(aes_state, round_key);
+    DLOG("after frst round: @aes_state(%" PRIxEG ")", PRVEG(aes_state));
 
     int roundId;
 
