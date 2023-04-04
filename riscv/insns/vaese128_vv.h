@@ -41,13 +41,8 @@ VI_ZVK_VD_VS2_NOOPERANDS_PRELOOP_EGU32x4_NOVM_LOOP(
     // AES state and key as EGU8x16 (i.e., 16 uint8_t). This is why
     // we extract the operands here instead of using the existing LOOP
     // macro that defines/extracts the operand variables as EGU32x4.
-    //EGU8x16_t aes_state = P.VU.elt_group<EGU8x16_t>(vd_num, idx_eg);
-    //const EGU8x16_t round_key = P.VU.elt_group<EGU8x16_t>(vs2_num, idx_eg);
     EGU8x16_t aes_state = P.VU.elt_group<EGU8x16_t>(vd_num, idx_eg);
     EGU32x4_t round_key = P.VU.elt_group<EGU32x4_t>(vs2_num, idx_eg);
-    // EGU32x4_t &round_key = orig_key;
-
-    // EGU8x16_t &aes_state = plaintext;
 
     DLOG("vaese128: @start"
          " plaintext(%" PRIxEG "), key(%" PRIxEGU32x4_LE ") idx_eg(%" PRIuREG ")",
