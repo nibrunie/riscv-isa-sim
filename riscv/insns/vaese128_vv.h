@@ -15,7 +15,7 @@
 #define DLOG(...) (void)(0)
 #endif
 
-require_vaes_vv_constraints;
+require_vaes_vv_all_rounds_constraints;
 
 // There is one round constant for each round number
 // between 1 and 10. We index using 'round# -1'.

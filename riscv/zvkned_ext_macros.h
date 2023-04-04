@@ -35,6 +35,20 @@
     require_egw_fits(128); \
   } while (false)
 
+// vaese*.vv instruction constraints. Those are the same as the .vs ones,
+// except for the overlap constraint that is not present for .vv variants.
+//  - Zvknf is enabled
+//  - LMUL * VLEN <= EGW (128)
+//
+// The constraint that vstart and vl are both EGS (4) aligned
+// is checked in the VI_ZVK_..._EGU32x4_..._LOOP macros.
+#define require_vaes_vv_all_rounds_constraints \
+  do { \
+    require_zvknf; \
+    require_vsew(32); \
+    require_egw_fits(128); \
+  } while (false)
+
 // vaeskf*.vi instruction constraints. Those are the same as the .vv ones.
 #define require_vaeskf_vi_constraints \
   do { \
