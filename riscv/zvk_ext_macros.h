@@ -220,6 +220,14 @@
     require_extension(EXT_ZVKNED); \
   } while (0)
 
+// Ensures that the ZVKNED extension (vector AES single round) is present,
+// which depends on vector.
+#define require_zvknf \
+  do { \
+    require_vector(true); \
+    require_extension(EXT_ZVKNF); \
+  } while (0)
+
 // Ensures that a ZVK extension supporting SHA-512 is present.
 // For SHA-512, this support is only present in Zvknhb.
 // Also ensures that vector support is present.
@@ -969,6 +977,20 @@
 #define EGU8x16_XOR(DST, A, B) \
   for (std::size_t bidx = 0; bidx < 16; ++bidx) { \
     (DST)[bidx] = (A)[bidx] ^ (B)[bidx]; \
+  }
+
+// Performs  "DST = A ^ B;", i.e., DST (overwritten) receives
+// the xor of the bytes in A and B (both unchanged).
+#define EGU8x16_XOR_EGU32x4(DST, A, B) \
+  for (std::size_t bidx = 0; bidx < 16; ++bidx) { \
+    (DST)[bidx] = (A)[bidx] ^ ((((B)[bidx / 4]) >> ((bidx % 4) * 8)) & 0xff); \
+  }
+
+// Performs  "MUT_A ^= CONST_B;", i.e., xor of the bytes
+// in A (mutated) with the bytes in B (unchanged).
+#define EGU8x16_XOREQ_EGU32x4(MUT_A, CONST_B) \
+  for (std::size_t bidx = 0; bidx < 16; ++bidx) { \
+    (MUT_A)[bidx] ^= ((((CONST_B)[bidx / 4]) >> ((bidx % 4) * 8)) & 0xff); \
   }
 
 // Performs  "DST = A ^ B;", i.e., DST (overwritten) receives
